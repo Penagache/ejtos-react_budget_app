@@ -12,7 +12,7 @@ export const AppReducer = (state, action) => {
                     return previousExp + currentExp.cost
                 },0
             );
-            // actualizar total con nuevo valor
+            // calcular nuevo total para ver si es bueno
             total_budget = total_budget + action.payload.cost;
             action.type = "DONE";
             
