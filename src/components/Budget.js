@@ -20,7 +20,7 @@ const Budget = () => {
             <input
                         required='required'
                         type='number'
-                        id='cost'
+                        id='budget'
                         value={budget}
                         style={{ marginLeft: '2rem' , size: 10}}
                         step='10'
