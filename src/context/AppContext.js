@@ -6,21 +6,30 @@ export const AppReducer = (state, action) => {
     switch (action.type) {
         case 'ADD_EXPENSE':
             let total_budget = 0;
+            // reducir array para obtener el total actual
             total_budget = state.expenses.reduce(
                 (previousExp, currentExp) => {
                     return previousExp + currentExp.cost
                 },0
             );
+            // actualizar total con nuevo valor
             total_budget = total_budget + action.payload.cost;
             action.type = "DONE";
+            
+            // si el nuevo total es menor que budget
             if(total_budget <= state.budget) {
                 total_budget = 0;
+                
+                // recorrer array
                 state.expenses.map((currentExp)=> {
+                    // si coincide el nombre con el de la accion actualizar el cost
                     if(currentExp.name === action.payload.name) {
                         currentExp.cost = action.payload.cost + currentExp.cost;
                     }
                     return currentExp
                 });
+                
+                // se devuelve el array de estados
                 return {
                     ...state,
                 };
