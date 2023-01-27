@@ -58,6 +58,31 @@ export const AppReducer = (state, action) => {
                 budget
             };
         case 'SET_BUDGET':
+            if(action.payload > 20000) {
+                alert("The value cannot exceed 20000 £");
+                budget = state.budget;
+                return {
+                    ...state,
+                    budget
+                };
+            }
+
+            if (state.expenses) 
+            {
+                const totalExpenses = state.expenses.reduce((total, item) => {
+                    return (total = total + item.cost);
+                }, 0);
+
+                if(action.payload < totalExpenses) {
+                alert("You cannot reduce the budget to be lower than the spending");
+                budget = state.budget;
+                return {
+                    ...state,
+                    budget
+                }
+                }
+            }
+            
             action.type = "DONE";
             state.budget = action.payload;
 
