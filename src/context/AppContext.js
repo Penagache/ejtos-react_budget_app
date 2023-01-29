@@ -70,7 +70,7 @@ export const AppReducer = (state, action) => {
             
             action.type = "DONE";
             if(action.payload > 20000) {
-                alert("The value cannot exceed 20000 £");
+                alert("The value cannot exceed 20000 "+ state.currency);
                 return {
                     ...state
                 };
