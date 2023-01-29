@@ -14,14 +14,14 @@ const Budget = () => {
     }
 
     return (
-        <div className='alert alert-secondary'>
-             <span>Budget: {currency} </span>
+        <div className='alert alert-secondary' style={{height:'60px'}}>
+             <label for="budget">Budget: {currency} </label>
             <input
                         required='required'
                         type='number'
                         id='budget'
                         value={budget}
-                        style={{ marginLeft: '2rem' , size: 10}}
+                        style={{ marginLeft: '2rem' , size: 10, width:110}}
                         step='10'
                         onChange={(event) => handleEvent(event.target.value)}>
             </input>
