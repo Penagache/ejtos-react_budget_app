@@ -12,11 +12,10 @@ const Budget = () => {
           payload: value,
         });
     }
-    const alertType = budget > 20000 ? 'alert-danger' : 'alert-success';
 
     return (
-        <div className='alert ${alertType}`}>
-            <span>Budget: {currency}</span>
+        <div className='alert alert-secondary'>
+             <span>Budget: {currency} </span>
             <input
                         required='required'
                         type='number'

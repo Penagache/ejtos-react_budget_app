@@ -5,28 +5,24 @@ const Currency = () => {
     const { currency, dispatch } = useContext(AppContext);
 
     function handleEvent(value) {
-
         dispatch({
           type: 'CHG_CURRENCY',
           payload: value,
         });
     }
 
-
     return (
-        <div className='alert alert-secondary'>
-            <span>Currency: £</span>
-            <input
-                        required='required'
-                        type='number'
-                        id='budget'
-                        value={budget}
-                        style={{ marginLeft: '2rem' , size: 10}}
-                        step='10'
-                        onChange={(event) => handleEvent(event.target.value)}>
-            </input>
+        <div className='alert alert-info'>
+            <div className="input-group mb-3" >
+				<select className="custom-select" id="inputGroupSelectCurrency" onChange={(event) => handleEvent(event.target.value)}>
+					<option defaultValue value={currency} name="pound">Currency (£ Pound)</option>
+					<option value="€" name="euro">Currency (€ Euro)</option>
+					<option value="$" name="dollar">Currency ($ Dollar)</option>
+					<option value="₹" name="ruppee">Currency (₹ Ruppee)</option>
+				</select>
+			</div>
         </div>
     );
 };
 
-export default Budget;
+export default Currency;
