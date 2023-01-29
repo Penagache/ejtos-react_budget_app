@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 
 const Budget = () => {
-    const { budget, dispatch } = useContext(AppContext);
+    const { budget, dispatch, currency} = useContext(AppContext);
 
     function handleEvent(value) {
 
@@ -16,7 +16,7 @@ const Budget = () => {
 
     return (
         <div className='alert alert-secondary'>
-            <span>Budget: £</span>
+            <span>Budget: {currency}</span>
             <input
                         required='required'
                         type='number'
